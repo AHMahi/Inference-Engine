@@ -1,0 +1,46 @@
+import java.util.LinkedList;
+
+
+public class horn {
+    private LinkedList<String> listA;
+    private String listArrow;
+
+
+    public horn(String inputA){
+        listA = new LinkedList<String>();
+        String[] splitarrow = inputA.split("=>");
+        String[] splitand = splitarrow[0].split("&");
+
+        for(int i =0; i < splitand.length; i++){
+            listA.addLast(splitand[i]);
+        }
+        listArrow = splitarrow[1];
+    }
+
+    public LinkedList<String >getListA(){
+
+        return listA;
+    }
+
+
+    public String getListAIndex(int index)
+    {
+        try {
+            if (index >= 0 && index < listA.size()) {
+                return listA.get(index);
+            } else {
+                throw new IndexOutOfBoundsException();
+            }
+        }catch (IndexOutOfBoundsException e){
+            e.printStackTrace();
+            System.exit(3);
+            return null;
+        }
+
+    }
+
+    public  int listAcount(){
+        return listA.size();
+    }
+}
+

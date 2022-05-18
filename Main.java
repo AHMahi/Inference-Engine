@@ -26,7 +26,13 @@ public class Main {
             Scanner scanner = new Scanner(newfile);
             Read_file nFile = new Read_file(scanner);
 
-            System.out.println(nFile.getp());
+            for(int i = 0; i < nFile.getp().size();i++) {
+                System.out.println(nFile.getp().get(i).getListA());
+                for (int j=0; j<nFile.getp().get(i).listAcount();j++){
+                   // System.out.println(nFile.getp().get(i).getListAIndex(j));
+                }
+               // System.out.println(nFile.getp().get(i).getListAIndex(i));
+            }
             System.out.println(nFile.getq());
         }catch (FileNotFoundException e){
             e.printStackTrace();

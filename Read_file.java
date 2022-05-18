@@ -2,9 +2,10 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.io.File;
+import java.util.LinkedList;
 
 public class Read_file {
-    private ArrayList<String> p;
+    private ArrayList<horn> p;
     private ArrayList<String> q;
 
 //    public Read_file(){
@@ -13,7 +14,7 @@ public class Read_file {
 //    }
 
     public Read_file(Scanner file){
-        p = new ArrayList<String>();
+        p = new ArrayList<horn>();
         q = new ArrayList<String>();
         Read_line(file);
     }
@@ -37,7 +38,7 @@ public class Read_file {
 //        }
         for(int i = 0; i < splitLine.length; i++){
             if(splitLine[i].contains("=>")){
-                p.add(splitLine[i]);
+                p.add(new horn(splitLine[i]));
             }
             else
             {
@@ -47,7 +48,7 @@ public class Read_file {
 
     }
 
-    public ArrayList<String> getp(){
+    public ArrayList<horn> getp(){
         return p;
     }
     public ArrayList<String> getq(){
