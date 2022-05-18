@@ -39,8 +39,29 @@ public class horn {
 
     }
 
+    public void removelistA(String listA){
+        //listA.remove(listA);
+    }
     public  int listAcount(){
         return listA.size();
     }
+
+    public String getListArrow() {
+        return listArrow;
+    }
+
+    //@override
+    public String toString(){
+        String returnString ="";
+    for(int i =0; i<listA.size();i++){
+        if(i != 0){
+            returnString += "^";
+        }
+        returnString += listA.get(i);
+    }
+    returnString += "=>";
+    return returnString;
+    }
+
 }
 
