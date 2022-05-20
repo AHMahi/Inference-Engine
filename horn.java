@@ -39,8 +39,8 @@ public class horn {
 
     }
 
-    public void removelistA(String listA){
-        //listA.remove(listA);
+    public void removelistA(String list){
+        listA.remove(list);
     }
     public  int listAcount(){
         return listA.size();
