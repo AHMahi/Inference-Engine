@@ -14,10 +14,12 @@ public class Main {
         //[1] = method
 
 
-        if(args.length < 1){
+        if(args.length < 2){
             System.out.println("Usage iengine <filename> <method>.");
             System.exit(1);
         }
+
+
         // inputing file from args[1]
         //Scanner inputfile = new Scanner(args[0]);
         //Read_file newfile = new Read_file(inputfile);
@@ -26,14 +28,26 @@ public class Main {
             Scanner scanner = new Scanner(newfile);
             Read_file nFile = new Read_file(scanner);
 
-            for(int i = 0; i < nFile.getp().size();i++) {
-                System.out.println(nFile.getp().get(i).getListA());
-                for (int j=0; j<nFile.getp().get(i).listAcount();j++){
-                   // System.out.println(nFile.getp().get(i).getListAIndex(j));
-                }
-               // System.out.println(nFile.getp().get(i).getListAIndex(i));
+//            for(int i = 0; i < nFile.getClauses().size();i++) {
+//                //System.out.println("front element : " + nFile.getClauses().get(i).getListA() + " back element : " + nFile.getClauses().get(i).getListArrow());
+//                    System.out.println(nFile.getClauses().get(i).getListAIndex(0));
+//               // System.out.println(nFile.getp().get(i).getListAIndex(i));
+//
+//
+//            }
+
+//            System.out.println(nFile.getFacts());
+//            System.out.println(nFile.getAsk());
+//
+
+        if(args[1].equals("fc")){
+            forwardc foward = new forwardc(nFile);
+           System.out.println("FC output: " + foward.testAsk());
+        }
+        if(args[1].equals("bc")) {
+                backwardc backward = new backwardc(nFile);
+                System.out.println("BC output: " + backward.testAsk());
             }
-            System.out.println(nFile.getq());
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }

@@ -5,7 +5,8 @@ public class horn {
     private LinkedList<String> listA;
     private String listArrow;
 
-
+//listA is the front element of the clause
+    // listarrow is the back element of the clauses
     public horn(String inputA){
         listA = new LinkedList<String>();
         String[] splitarrow = inputA.split("=>");

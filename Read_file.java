@@ -1,3 +1,4 @@
+import java.sql.Array;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -5,8 +6,9 @@ import java.io.File;
 import java.util.LinkedList;
 
 public class Read_file {
-    private ArrayList<horn> p;
-    private ArrayList<String> q;
+    private ArrayList<horn> clauses;
+    private ArrayList<String> facts;
+    private String Ask;
 
 //    public Read_file(){
 //        p = new ArrayList<String>();
@@ -14,8 +16,9 @@ public class Read_file {
 //    }
 
     public Read_file(Scanner file){
-        p = new ArrayList<horn>();
-        q = new ArrayList<String>();
+        clauses = new ArrayList<horn>();
+        facts = new ArrayList<String>();
+        //Ask = new ArrayList<String>();
         Read_line(file);
     }
 
@@ -24,6 +27,9 @@ public class Read_file {
         /* Taking the first line of the file */
        String Tell = file.nextLine();
         String cleanLine = file.nextLine();;
+        String keyword = file.nextLine();
+        String ask = file.nextLine();
+        Ask = ask;
 //        System.out.println(cleanLine);
         cleanLine = cleanLine.replaceAll("\\s","");
         String [] splitLine = cleanLine.split(";");
@@ -38,22 +44,23 @@ public class Read_file {
 //        }
         for(int i = 0; i < splitLine.length; i++){
             if(splitLine[i].contains("=>")){
-                p.add(new horn(splitLine[i]));
+                clauses.add(new horn(splitLine[i]));
             }
             else
             {
-                q.add(splitLine[i]);
+                facts.add(splitLine[i]);
             }
         }
 
     }
 
-    public ArrayList<horn> getp(){
-        return p;
+    public ArrayList<horn> getClauses(){
+        return clauses;
     }
-    public ArrayList<String> getq(){
-        return q;
+    public ArrayList<String> getFacts(){
+        return facts;
     }
+    public String getAsk(){return Ask; }
 
 
 }
