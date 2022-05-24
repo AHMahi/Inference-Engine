@@ -48,6 +48,11 @@ public class Main {
                 backwardc backward = new backwardc(nFile);
                 System.out.println("BC output: " + backward.testAsk());
             }
+            if(args[1].equals("tt"))
+            {
+                truthtable truthtable = new truthtable((nFile));
+                System.out.println("truth output: " + truthtable.testTruth());
+            }
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }

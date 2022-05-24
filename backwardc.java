@@ -6,6 +6,7 @@ public class backwardc {
     private  ArrayList<String> factsout;
     private String query;
     private ArrayList<String> aQueries;
+    private ArrayList<String> duplicatecheck;
 
     public backwardc(Read_file aBase)
     {
@@ -14,6 +15,7 @@ public class backwardc {
         query = aBase.getAsk();
         aQueries= new ArrayList<String>();
         factsout = new ArrayList<String>();
+        duplicatecheck = new ArrayList<String>();
     }
 
     public boolean FactsCheck(){
@@ -23,7 +25,9 @@ public class backwardc {
         while(!aQueries.isEmpty())
         {
             String aQuery = aQueries.remove(0);
-            factsout.add(aQuery);
+           if(!factsout.contains(aQuery)) {
+               factsout.add(aQuery);
+           }
             if(!compareFacts(aQuery))
             {
                 if(!compareClauses(aQuery))
@@ -60,10 +64,17 @@ public class backwardc {
                 result = true;
                 for (int j = 0; j<clauses.get(i).listAcount();j++)
                 {
-                    aQueries.add(clauses.get(i).getListAIndex(j));
+
+                    if(!factsout.contains(clauses.get(i).getListAIndex(j)))
+                    {
+//                        duplicatecheck.add(clauses.get(i).getListAIndex(j));
+                        aQueries.add(clauses.get(i).getListAIndex(j));
+                    }
                 }
             }
         }
+
+
         // might need to add a repeating check
         return result;
 
@@ -75,10 +86,10 @@ public class backwardc {
         if(FactsCheck())
         {
             output = "YES: ";
-            for(int i = 0; i<factsout.size();i++ )
+            for(int i = factsout.size()-1;i >= 0; i--)
             {
                 output +=(factsout.get(i));
-                if(i<factsout.size()-1)
+                if(i !=0)
                 {
                     output += ",";
                 }
