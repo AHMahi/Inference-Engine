@@ -22,20 +22,28 @@ public class backwardc {
         // search through all the elements in clauses lists
 
         aQueries.add(query);
+
+        // while there is element in the container
         while(!aQueries.isEmpty())
         {
+            // pop the first element to add into facts list
             String aQuery = aQueries.remove(0);
+
+            //using .contain to avoid adding same element twice
            if(!factsout.contains(aQuery)) {
                factsout.add(aQuery);
            }
+
+           // comparing the query to the facts
             if(!compareFacts(aQuery))
             {
+
+            //comparing the query to all the clauses
                 if(!compareClauses(aQuery))
                 {
                     return false;
                 }
             }
-
             }
 
         return true;
@@ -57,6 +65,8 @@ public class backwardc {
     public boolean compareClauses(String aQuery){
 
         boolean result = false;
+
+        // using the size of the array to call out each element to check
         for(int i = 0; i< clauses.size();i++)
         {
             if(aQuery.equals(clauses.get(i).getListArrow()))
@@ -67,7 +77,7 @@ public class backwardc {
 
                     if(!factsout.contains(clauses.get(i).getListAIndex(j)))
                     {
-//                        duplicatecheck.add(clauses.get(i).getListAIndex(j));
+
                         aQueries.add(clauses.get(i).getListAIndex(j));
                     }
                 }
@@ -75,13 +85,14 @@ public class backwardc {
         }
 
 
-        // might need to add a repeating check
         return result;
 
     }
 
     public String testAsk()
     {
+
+        // function to call the printout using backward chaining method
         String output="";
         if(FactsCheck())
         {

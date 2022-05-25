@@ -10,27 +10,32 @@ public class Read_file {
     private ArrayList<String> facts;
     private String Ask;
 
-//    public Read_file(){
-//        p = new ArrayList<String>();
-//        q = new ArrayList<String>();
-//    }
+
 
     public Read_file(Scanner file){
         clauses = new ArrayList<horn>();
         facts = new ArrayList<String>();
-        //Ask = new ArrayList<String>();
         Read_line(file);
     }
 
     public void Read_line(Scanner file){
-       // File readLine = new File(file);
+
         /* Taking the first line of the file */
        String Tell = file.nextLine();
-        String cleanLine = file.nextLine();;
+
+       // taking the clauses and process it
+        String cleanLine = file.nextLine();
+        // Print out Tell in terminal
+        System.out.println("Tell: " + cleanLine);
+
+        // Taking the keyword Ask
         String keyword = file.nextLine();
+
+        // Taking the facts and process it
         String ask = file.nextLine();
+        System.out.println("Ask : " + ask);
         Ask = ask;
-//        System.out.println(cleanLine);
+
         cleanLine = cleanLine.replaceAll("\\s","");
         String [] splitLine = cleanLine.split(";");
       // p.add(file.nextLine());
@@ -54,6 +59,8 @@ public class Read_file {
 
     }
 
+
+
     public ArrayList<horn> getClauses(){
         return clauses;
     }
@@ -61,6 +68,7 @@ public class Read_file {
         return facts;
     }
     public String getAsk(){return Ask; }
+
 
 
 }
