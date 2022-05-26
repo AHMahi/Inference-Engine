@@ -36,17 +36,13 @@ public class Read_file {
         System.out.println("Ask : " + ask);
         Ask = ask;
 
+        //replace all the blank space
         cleanLine = cleanLine.replaceAll("\\s","");
+
+        // spitting each set of statements
         String [] splitLine = cleanLine.split(";");
-      // p.add(file.nextLine());
-       //String ABC = file.next();
-//        while ((file.hasNext())) {
-//            System.out.println(file.next());
-//        }
-//        System.out.println(Tell);
-//        for(int i = 0; i < splitLine.length; i++) {
-//            System.out.println(splitLine[i]);
-//        }
+
+        // splitting into clauses and facts. Clauses contain the implications
         for(int i = 0; i < splitLine.length; i++){
             if(splitLine[i].contains("=>")){
                 clauses.add(new horn(splitLine[i]));

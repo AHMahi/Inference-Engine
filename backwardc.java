@@ -52,6 +52,8 @@ public class backwardc {
 
     public boolean compareFacts(String aQuery)
     {
+
+        // checking if the facts is valid against query
         for(int i=0; i<facts.size();i++)
         {
             if(aQuery.equals(facts.get(i)))
@@ -109,7 +111,7 @@ public class backwardc {
         }
         else
         {
-            output = " NO: " + query + "can not be proven";
+            output = " NO: " + query + " can not be proven";
 
         }
         return output;

@@ -27,16 +27,16 @@ public class iengine {
             Read_file nFile = new Read_file(scanner);
 
 
-        if(args[0].equals("fc")){
+        if(args[0].equals("FC")){
             forwardc foward = new forwardc(nFile);
            System.out.println("FC output: " + foward.testAsk());
         }
-        if(args[0].equals("bc")) {
+        if(args[0].equals("BC")) {
                 backwardc backward = new backwardc(nFile);
 
                 System.out.println("BC output: " + backward.testAsk());
             }
-            if(args[0].equals("tt"))
+            if(args[0].equals("TT"))
             {
                 truthtable truthtable = new truthtable((nFile));
                 System.out.println("truth output: " + truthtable.testTruth());

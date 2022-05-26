@@ -45,7 +45,8 @@ public class truthtable {
 
     public void getElements(){
 
-
+// adding listA which is the literal and listarrow which is the
+// entailment in to an arraylist and check for duplicate
         for(int i = 0; i< clauses.size();i++)
         {
             for(int j = 0; j<clauses.get(i).listAcount();j++)
@@ -72,7 +73,7 @@ public class truthtable {
         }
         else
         {
-            result = "No: " + query + "can not be proven ";
+            result = "No: " + query + " can not be proven ";
         }
         for(int i =0; i<elementlist.size();i++)
         {
@@ -90,6 +91,7 @@ public class truthtable {
         {
             for(int j =0; j < factsIndex.length;j++)
             {
+                //
                 if(tableSetup[i])
                 {
                     if(!table[i][queryIndex])
@@ -153,7 +155,7 @@ public class truthtable {
     }
 
     public void table_setup(){
-
+        // setting up the table with true for every position in the row
         for(int i = 0; i <rowsize;i++)
         {
             tableSetup[i] = true;
@@ -163,21 +165,25 @@ public class truthtable {
 
     public void PopulateTable()
     {
+
+        // Populate the table from first row of each position in the column
         for (int i=0;i<rowsize;i++)
         {
             for (int j=0;j<columnsize;j++)
             {
-//                System.out.print(i);
+
                 int x = i & 1 <<columnsize -1-j;
                 table[i][j] = (x ==0? true:false);
-//                System.out.print(table[i][j]);
-//                System.out.println(" ");
+
             }
         }
     }
 
     public void ColumnIndexfacts()
     {
+
+        // checking the facts against the element of elementlist we added(listA and listarrow)
+
         for(int i =0; i<facts.size();i++)
         {
             for(int j=0;j< elementlist.size();j++)
@@ -196,6 +202,7 @@ public class truthtable {
 
     public void ColumnIndexlistA()
     {
+        // checking the clausese against the element of elementlist, if it is equal, we set the index
         for(int i =0; i < elementlist.size();i++)
         {
             for(int j = 0; j<clauses.size();j++)
