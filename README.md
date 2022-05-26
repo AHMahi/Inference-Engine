@@ -3,6 +3,7 @@ Intro To AI COS30019 Assignment 2
 
 
 Student details
+- Abdul Hamid Mahi (103521410)
 - Joel wyn TAN (662443x)
 
 Progression
